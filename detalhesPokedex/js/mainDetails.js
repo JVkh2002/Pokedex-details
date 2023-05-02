@@ -3,7 +3,11 @@ function convertPokemonAbilitiesToLi(pokemonAbilities) {
 }
 
 function convertPokemonTypesToLi(pokemonTypes) {
-    return pokemonTypes.map((TypeSlot) => `<li>${TypeSlot.type.name}</li>`)
+    return pokemonTypes.map((TypeSlot) => `<li >${TypeSlot.type.name}</li>`)
+}
+
+function convertPokemonTypesToLi2(pokemonTypes) {
+    return pokemonTypes.map((TypeSlot) => `${TypeSlot.type.name}`)
 }
 
 function convertPokemonMovesToLi(pokemonTypes) {
@@ -12,55 +16,59 @@ function convertPokemonMovesToLi(pokemonTypes) {
 
 function convertPokemonToLi(pokemon) {
     return `
-        <section class="pokemon">
-            <div id="name">${pokemon.name}</div>
-            <div id="number">#${pokemon.id}</div>
-            <ol id="types">
-                ${convertPokemonTypesToLi(pokemon.types).join(' ')}
-            </ol>
-            <img src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
-        </section>
-        <section class="details">
-            <div id="menu">
+        <div class = "pokemonMain">
+            <section class="pokemon ${convertPokemonTypesToLi2(pokemon.types)[0]}">
+                <div id="name">${pokemon.name}</div>
+                <div id="number">#${pokemon.id}</div>
+                <ol id="types">
+                    ${pokemon.types.map((TypeSlot) => `<li id="type" class="${TypeSlot.type.name}">${TypeSlot.type.name}</li>`).join('')}
+                </ol>
+                <img src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
+            </section>
+            <section class="details">
+                <div id="menu">
 
-                <button id="escondeAbout"> About </button>
-                <button id="mostraBase"> Base data </button>
-                <button id="mostraEvolution"> Evolution </button>
-                <button id="mostraMoves"> Moves </button>
+                    <div id = "botões">
+                    <button id="escondeAbout"> About </button>
+                    <button id="mostraBase"> Base data </button>
+                    <button id="mostraEvolution"> Evolution </button>
+                    <button id="mostraMoves"> Moves </button>
+                    </div>
 
-                <ul id="showAbout">
-                    <li>
-                        specie: ${pokemon.name}
-                    </li>
-                    <li>
-                        height: ${pokemon.height}
-                    </li>
-                    <li>
-                        weight: ${pokemon.weight}
-                    </li>
-                    <li>abilities: ${convertPokemonAbilitiesToLi(pokemon.abilities)}</li>
-                    <br>
-                </ul>
+                    <ul id="showAbout">
+                        <li>
+                            specie: <span class = "cont">${pokemon.name}</span>
+                        </li>
+                        <li>
+                            height: <span class = "cont">${pokemon.height}</span>
+                        </li>
+                        <li>
+                            weight: <span class = "cont">${pokemon.weight}</span>
+                        </li>
+                        <li>abilities: ${convertPokemonAbilitiesToLi(pokemon.abilities)}</li>
+                        <br>
+                    </ul>
 
-                <ul id="showBase" style="display:none">
-                    <li>HP: ${pokemon.stats[0].base_stat}</li>
-                    <li>Attack: ${pokemon.stats[1].base_stat}</li>
-                    <li>Defense: ${pokemon.stats[2].base_stat}</li>
-                    <li>Sp.Attack: ${pokemon.stats[3].base_stat}</li>
-                    <li>Sp.Defense: ${pokemon.stats[4].base_stat}</li>
-                    <li>Speed: ${pokemon.stats[5].base_stat}</li>
-                </ul>
+                    <ul id="showBase" style="display:none">
+                        
+                        <li>HP: ${pokemon.stats[0].base_stat} </li>
+                        <li>Attack: ${pokemon.stats[1].base_stat}</li>
+                        <li>Defense: ${pokemon.stats[2].base_stat}</li>
+                        <li>Sp.Attack: ${pokemon.stats[3].base_stat}</li>
+                        <li>Sp.Defense: ${pokemon.stats[4].base_stat}</li>
+                        <li>Speed: ${pokemon.stats[5].base_stat}</li>
+                    </ul> 
 
-                <ul id="showEvolution" style="display:none">
-                    <li>Evolution: Bulbasaur </li>
-                </ul>
-                    
-                <ul id="showMoves" style="display:none">
-                    <li>Moves: ${convertPokemonMovesToLi(pokemon.moves).join(' ')}</li>
-                </ul>
-
-            </div>
-        </section>
+                    <ul id="showEvolution" style="display:none">
+                        <li>Evolution: Bulbasaur </li>
+                    </ul>
+                        
+                    <ul id="showMoves" style="display:none">
+                        <li>Moves: ${convertPokemonMovesToLi(pokemon.moves).join(' ')}</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
     `
 }
 
@@ -74,6 +82,7 @@ pokeApi.getPokemons().then((pokemons = " ") => {
     document.getElementById("mostraBase").addEventListener("mouseover", toggleBaseSection);
     document.getElementById("mostraEvolution").addEventListener("mouseover", toggleEvolutionSection);
     document.getElementById("mostraMoves").addEventListener("mouseover", toggleMovesSection);
+
 })
 
 // Função para alternar a exibição da <ul> com id "showAbout"

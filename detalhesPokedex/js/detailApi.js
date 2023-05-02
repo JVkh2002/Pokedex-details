@@ -6,7 +6,7 @@ pokeApi.getPokemonDetail = (pokemon) => {
 }
 
 // Função para obter uma lista de pokémons com base nos parâmetros de offset e limit
-pokeApi.getPokemons = (offset = 0, limit = 6) => {
+pokeApi.getPokemons = (offset = 0, limit = 10) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
     // Realiza uma requisição fetch para a API da PokeAPI com a URL construída

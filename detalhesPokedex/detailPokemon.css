@@ -1,14 +1,13 @@
-body{
-    background-color: #77C850;
-}
+
 
 .pokemon {
-    background-color: #77C850;
-    border-radius: 1.2rem;
     font-family: 'Roboto', sans-serif;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     padding-bottom: 0rem;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+
 }
 
 #name {
@@ -30,34 +29,46 @@ body{
     padding-right: 18rem;
 }
 
-#types li{
+#type {
+    color: #fff;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: 0.8rem;
     border-radius: 1rem;
-    background-color: #83DC58;
-    height: fit-content;
+    box-shadow: none;
+    filter: brightness(1.2);
     width: fit-content;
-    margin: 0.4rem;
 }
 
 img {
     max-width: 40%;
-    padding-left: 7.5rem;
-    padding-top: 5.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .details{
-    border-top-right-radius: 2rem;
     padding-top: 0rem;
-    border-top-left-radius: 2rem;
     background-color: white;
     padding-bottom: 11.5rem;
+    box-shadow: 0px 23px 100px 1px #000000;
+    margin-bottom: 3rem;
+    border-radius: 2rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 #menu{
-    margin: 2rem;
+    margin-left: 1rem;
     margin-top: 0;
     margin-bottom: 0;
-    border-bottom-style:solid;
-    border-color: gray
+}
+
+#botões {
+    border-bottom: solid gray 2px;
+    padding-bottom: 0.3rem;
+    text-align: center;
+    margin-left: -1rem;
 }
 
 button{
@@ -79,4 +90,180 @@ ul{
 
 ul li{
     color: gray;
+}
+
+@media screen and (min-width: 380px) {
+    #number{
+        text-align: right;
+        padding-right: 1rem;
+    }
+
+    #botões{
+        text-align: center;
+    }
+}
+
+
+@media screen and (min-width: 576px) {
+    #number{
+        text-align: right;
+        padding-right: 1rem;
+    }
+
+    #botões{
+        text-align: center;
+    }
+
+    #js {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pokemonMain {
+        margin: 1rem;
+        margin-left: 0rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #js {
+        display: block;
+    }
+    
+    * {
+        padding: 0.5rem;
+    }
+
+    #name{
+        font-size: 4rem;
+    }
+
+    #types{
+        font-size: 2rem;
+    }
+
+    #number{
+        font-size: 2rem;
+    }
+
+
+    .details {
+        padding-bottom: 23.5rem;
+    }
+
+    #botões {
+        font-size: 2.5rem;
+    }
+
+    ul li {
+        font-size: 2.5rem;
+    }
+}
+
+.normal {
+    background-color: #a6a877;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #a6a877;
+}
+
+.grass {
+    background-color: #77c850;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #77c850;
+}
+
+.fire {
+    background-color: #ee7f30;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #ee7f30;
+}
+
+.water {
+    background-color: #678fee;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #678fee;
+}
+
+.electric {
+    background-color: #f7cf2e;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #f7cf2e;
+}
+
+.ice {
+    background-color: #98d5d7;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #98d5d7;
+}
+
+.ground {
+    background-color: #dfbf69;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #dfbf69;
+}
+
+.flying {
+    background-color: #a98ff0;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #a98ff0;
+}
+
+.poison {
+    background-color: #a040a0;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #a040a0;
+}
+
+.fighting {
+    background-color: #bf3029;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #bf3029;
+}
+
+.psychic {
+    background-color: #f65687;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #f65687;
+}
+
+.dark {
+    background-color: #725847;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #725847;
+}
+
+.rock {
+    background-color: #b8a137;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #b8a137;
+}
+
+.bug {
+    background-color: #a8b720;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #a8b720;
+}
+
+.ghost {
+    background-color: #6e5896;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #6e5896;
+}
+
+.steel {
+    background-color: #b9b7cf;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #b9b7cf;
+}
+
+.dragon {
+    background-color: #6f38f6;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #6f38f6;
+}
+
+.fairy {
+    background-color: #f9aec7;
+    border-style: none;
+    box-shadow: 1px 1px 50px 25px #f9aec7;
 }
